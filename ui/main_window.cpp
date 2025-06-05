@@ -9,6 +9,10 @@
 #include <QMenu>
 #include <QAction>
 #include <QMessageBox>
+#include <QDockWidget>
+#include "audio_wave_widget.h"
+#include "../theory/quiz_widget.h"
+#include "../theory/audio_quiz_widget.h"
 
     
 bool MainWindow::isLoudEnough(const QByteArray& data) {
@@ -69,20 +73,30 @@ MainWindow::MainWindow(QWidget* parent) : QMainWindow(parent) {
     MicInput* micInput_;
     PitchDetector* pitchDetector_;
     StringTuner* stringTuner_;
+    AudioWaveWidget* audioWaveWidget_;
 
     auto* tabs = new QTabWidget(this);
     tunerWidget_ = new TunerWidget(this);
     tabs->addTab(tunerWidget_, tr("Гитарный тюнер"));
+    auto* quizWidget = new QuizWidget(this);
+    tabs->addTab(quizWidget, tr("Викторина"));
     setCentralWidget(tabs);
-    setWindowTitle("TuneMaster 🎸");
+    setWindowTitle("TuneMaster");
     resize(600, 400);
 
     setupMenu();
 
+    audioWaveWidget_ = new AudioWaveWidget(this);
 
+
+    auto* dockWave = new QDockWidget("Волна звука", this);
+    dockWave->setWidget(audioWaveWidget_);
+    dockWave->setAllowedAreas(Qt::BottomDockWidgetArea | Qt::TopDockWidgetArea);
+    addDockWidget(Qt::BottomDockWidgetArea, dockWave);
     micInput_ = new MicInput(this);
     pitchDetector_ = new PitchDetector(this);
     stringTuner_ = new StringTuner(this);
+    connect(micInput_, &MicInput::audioDataReady, audioWaveWidget_, &AudioWaveWidget::onAudioData);
 
 
     connect(micInput_, &MicInput::audioDataReady, this, [=](const QByteArray& data) {
@@ -93,7 +107,6 @@ MainWindow::MainWindow(QWidget* parent) : QMainWindow(parent) {
         tunerWidget_->updatePitch(freq, targetFreq);
 
         });
-
     micInput_->start();
 }
 

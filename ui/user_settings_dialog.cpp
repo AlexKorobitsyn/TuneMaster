@@ -4,18 +4,22 @@
 #include <QCheckBox>
 #include <QDialogButtonBox>
 #include <QLabel>
+#include <QMessageBox>
+
+
 
 UserSettingsDialog::UserSettingsDialog(QWidget* parent)
     : QDialog(parent)
 {
+    setFont(QFont("Segoe UI", 10));
     auto* layout = new QVBoxLayout(this);
 
-    auto* label = new QLabel("×óâñòâèòåëüíîñòü ìèêðîôîíà:", this);
+    auto* label = new QLabel(tr("Ð§ÑƒÐ²ÑÑ‚Ð²Ð¸Ñ‚ÐµÐ»ÑŒÐ½Ð¾ÑÑ‚ÑŒ Ð¼Ð¸ÐºÑ€Ð¾Ñ„Ð¾Ð½Ð°:"), this);
     sliderMicSensitivity_ = new QSlider(Qt::Horizontal, this);
     sliderMicSensitivity_->setRange(1, 100);
     sliderMicSensitivity_->setValue(50);
 
-    checkShowHints_ = new QCheckBox("Ïîêàçûâàòü ñîâåòû ïî íàñòðîéêå", this);
+    checkShowHints_ = new QCheckBox(tr("ÐŸÐ¾ÐºÐ°Ð·Ñ‹Ð²Ð°Ñ‚ÑŒ ÑÐ¾Ð²ÐµÑ‚Ñ‹ Ð¿Ð¾ Ð½Ð°ÑÑ‚Ñ€Ð¾Ð¹ÐºÐµ"), this);
     checkShowHints_->setChecked(true);
 
     auto* buttonBox = new QDialogButtonBox(QDialogButtonBox::Ok | QDialogButtonBox::Cancel, this);
@@ -27,7 +31,6 @@ UserSettingsDialog::UserSettingsDialog(QWidget* parent)
     layout->addWidget(checkShowHints_);
     layout->addWidget(buttonBox);
 }
-
 int UserSettingsDialog::micSensitivity() const {
     return sliderMicSensitivity_->value();
 }
@@ -43,3 +46,5 @@ bool UserSettingsDialog::showHints() const {
 void UserSettingsDialog::setShowHints(bool value) {
     checkShowHints_->setChecked(value);
 }
+
+

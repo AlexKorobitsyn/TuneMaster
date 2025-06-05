@@ -9,38 +9,56 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="ui/main_window.cpp" line="37"/>
+        <location filename="ui/main_window.cpp" line="41"/>
         <source>&amp;Файл</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="ui/main_window.cpp" line="38"/>
+        <location filename="ui/main_window.cpp" line="42"/>
         <source>&amp;Справка</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="ui/main_window.cpp" line="40"/>
+        <location filename="ui/main_window.cpp" line="46"/>
         <source>Выход</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="ui/main_window.cpp" line="43"/>
+        <location filename="ui/main_window.cpp" line="49"/>
         <source>О программе</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="ui/main_window.cpp" line="45"/>
+        <location filename="ui/main_window.cpp" line="82"/>
+        <source>Викторина</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="ui/main_window.cpp" line="43"/>
         <source>&amp;Настройки</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="ui/main_window.cpp" line="46"/>
+        <location filename="ui/main_window.cpp" line="44"/>
         <source>Пользовательские настройки</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="ui/main_window.cpp" line="74"/>
+        <location filename="ui/main_window.cpp" line="80"/>
         <source>Гитарный тюнер</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>UserSettingsDialog</name>
+    <message>
+        <location filename="ui/user_settings_dialog.cpp" line="17"/>
+        <source>Чувствительность микрофона:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="ui/user_settings_dialog.cpp" line="22"/>
+        <source>Показывать советы по настройке</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

@@ -3,11 +3,12 @@
 #include <QApplication>
 #include <QLocale>
 #include <QTranslator>
+#include <QTextCodec>
 
 int main(int argc, char *argv[])
 {
     QApplication a(argc, argv);
-
+    QTextCodec::setCodecForLocale(QTextCodec::codecForName("UTF-8"));
     QTranslator translator;
     const QStringList uiLanguages = QLocale::system().uiLanguages();
     for (const QString &locale : uiLanguages) {

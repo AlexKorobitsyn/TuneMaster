@@ -31,7 +31,7 @@ void QuizManager::generateQuestion() {
         currentAnswer = noteName;
     } else {
         currentQuestion = QString("Which note is this? (MIDI %1)").arg(midi);
-        currentAnswer = getRandomNoteName();  // Stub — реально бы тут был pitch detection
+        currentAnswer = getRandomNoteName();  //stub
     }
 
     emit questionReady(currentQuestion);

@@ -4,10 +4,13 @@
 #include "../ui/user_settings_dialog.h"
 
 class TunerWidget;
+class AudioWaveWidget;
+
 
 class MainWindow : public QMainWindow {
     Q_OBJECT
 public:
+
     explicit MainWindow(QWidget *parent = nullptr);
     ~MainWindow();
     bool MainWindow::isLoudEnough(const QByteArray& data);
