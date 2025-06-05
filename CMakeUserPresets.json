@@ -1,0 +1,76 @@
+{
+  "version": 3,
+  "configurePresets": [
+    {
+      "name": "Qt-Debug",
+      "inherits": "Qt-Default",
+      "binaryDir": "${sourceDir}/out/build/debug",
+      "cacheVariables": {
+        "CMAKE_BUILD_TYPE": "Debug",
+        "CMAKE_CXX_FLAGS": "-DQT_QML_DEBUG"
+      },
+      "environment": {
+        "QML_DEBUG_ARGS": "-qmljsdebugger=file:{099a6f48-6662-4a9a-939a-d3f6fdc6cde5},block"
+      }
+    },
+    {
+      "name": "Qt-Release",
+      "inherits": "Qt-Default",
+      "binaryDir": "${sourceDir}/out/build/release",
+      "cacheVariables": {
+        "CMAKE_BUILD_TYPE": "Release"
+      }
+    },
+    {
+      "hidden": true,
+      "name": "Qt-Default",
+      "inherits": "build_qtbase",
+      "vendor": {
+        "qt-project.org/Default": {
+          "checksum": "2hL2pafoYZ9XmP1C13Y4VqMfEy4="
+        }
+      }
+    },
+    {
+      "hidden": true,
+      "name": "build_qtbase",
+      "inherits": "Qt",
+      "environment": {
+        "QTDIR": "D:/qt/qt5.15.2-install"
+      },
+      "architecture": {
+        "strategy": "external",
+        "value": "x64"
+      },
+      "generator": "Ninja",
+      "vendor": {
+        "qt-project.org/Version": {
+          "checksum": "gXzChSNid3SvuAbVEeJRGhJerpQ="
+        }
+      }
+    },
+    {
+      "hidden": true,
+      "name": "qt_qt5.15.2-install",
+      "inherits": "Qt",
+      "environment": {
+        "QTDIR": "D:/qt/qt5.15.2-install"
+      },
+      "architecture": {
+        "strategy": "external",
+        "value": "x64"
+      },
+      "generator": "Ninja",
+      "vendor": {
+        "qt-project.org/Version": {
+          "checksum": "t2RC3myAWdj03O6oqvE38UgvL6M="
+        }
+      }
+    }
+  ],
+  "vendor": {
+    "qt-project.org/Presets": {
+      "checksum": "3WadcFddjOP0nMeGsd9d1A+LToU="
+    }
+  }
+}
